@@ -1,5 +1,11 @@
 name: My-first-workflow
-on: [push]
+on: 
+  push:
+    branches-ignore:
+      - 'release'
+    paths:
+      - 'tests/**'
+      - 'flaskr/**'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,8 +25,11 @@ jobs:
         run: echo $GITHUB_WORKSPACE
       - name: linting
         continue-on-error: true
+        if: github.ref=='refs/heads/main'
         run: flake8 . --count
       - name: coverage test
+        if: github.ref=='refs/heads/main'
         run: coverage run -m pytest
       - run: coverage report
+        if: github.ref=='refs/heads/main'
         
