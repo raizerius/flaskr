@@ -6,7 +6,7 @@ on:
       - flaskr/**
 jobs:
   build:
-    if: github.ref!='release'
+    if: github.ref!='remote/release'
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -24,11 +24,11 @@ jobs:
         run: echo $GITHUB_WORKSPACE
       - name: linting
         continue-on-error: true
-        if: github.ref=='main'
+        if: github.ref=='remote/main'
         run: flake8 . --count
       - name: coverage test
-        if: github.ref=='main'
+        if: github.ref=='remote/main'
         run: coverage run -m pytest
       - run: coverage report
-        if: github.ref=='main'
+        if: github.ref=='remote/main'
         
