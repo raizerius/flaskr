@@ -1,5 +1,5 @@
 name: My-first-workflow
-on: []
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
