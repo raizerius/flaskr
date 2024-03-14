@@ -25,11 +25,11 @@ jobs:
         run: echo $GITHUB_WORKSPACE
       - name: linting
         continue-on-error: true
-        if: github.repository=='main'
+        if: github.ref=='refs/heads/main'
         run: flake8 . --count
       - name: coverage test
-        if: github.repository=='main'
+        if: github.ref=='refs/heads/main'
         run: coverage run -m pytest
       - run: coverage report
-        if: github.repository=='main'
+        if: github.ref=='refs/heads/main'
         
