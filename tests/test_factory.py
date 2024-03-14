@@ -1,5 +1,5 @@
 from flaskr import create_app
-print('hello world')
+print('hello world!')
 
 def test_config():
     """Test create_app without passing test config."""
