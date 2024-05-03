@@ -13,7 +13,7 @@ Install
 you're reading.** You probably want the latest tagged version, but the
 default Git version is the main branch. ::
 
-    # clone the repo
+    # clone the repository
     $ git clone https://github.com/pallets/flask
     $ cd flask
     # checkout the correct version
